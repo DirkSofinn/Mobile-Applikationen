@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ic_launcher_foreground"
+    android:background=
     tools:context=".MainActivity"
     android:orientation="vertical">
 
@@ -29,12 +29,39 @@
         android:textAlignment="center"
         android:textStyle="italic"/>
 
+
+
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:layout_marginStart="70dp"
         android:orientation="vertical">
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+         >
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Männlich"
+            android:id="@+id/ButtonMännlich"
+            />
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Divers"
+            android:id="@+id/ButtonDivers"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Weiblich"
+            android:id="@+id/ButtonWeiblich"
+            />
+        </RadioGroup>
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -48,24 +75,25 @@
         android:id="@+id/groesseVater"
         android:hint="Größe des Vaters eingeben... (in cm)"
         android:layout_marginBottom="50dp"/>
-
     </LinearLayout>
 
     <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >"
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
             android:id="@+id/ButtonBerechnen"
-            android:layout_marginStart="15dp"
-            android:text="Berechnen"/>
+            android:layout_centerHorizontal="true"
+            android:text="Jetzt berechnen"
+           />
+                            
 
         <Button
             android:id="@+id/ButtonHilfe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
             android:layout_marginEnd="15dp"
             android:text="Hilfe"
             />
