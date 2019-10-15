@@ -37,8 +37,14 @@ public class MainActivity extends AppCompatActivity{
         berechnen=findViewById(R.id.ButtonBerechnen);
         hilfe=findViewById(R.id.ButtonHilfe);
 
-        berechnen.setOnClickListener(view-> {berechnungGroesse(); Intent intent=new Intent(this, ActivityAusgabe.class);startActivity(intent);}); //Noch in Datenbank speichern hinzufügen
-        hilfe.setOnClickListener(view -> {Intent intent=new Intent(this, ActivityHelp.class);startActivity(intent);});
+        berechnen.setOnClickListener(view-> {
+            berechnungGroesse();
+            Intent intent=new Intent(this, ActivityAusgabe.class);
+            startActivity(intent);}); //Noch in Datenbank speichern hinzufügen
+
+        hilfe.setOnClickListener(view -> {
+            Intent intent=new Intent(this, ActivityHelp.class);
+            startActivity(intent);});
     }
 
     public void berechnungGroesse(){
