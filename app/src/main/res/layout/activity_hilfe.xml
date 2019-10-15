@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/Titel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hilfe"
+        android:textColor="@color/colorAccent"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="50dp"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textAllCaps="true"
+        android:textSize="30dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/HilfeText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Folgt später..."
+            android:textAlignment="center"/>
+
+        <Button
+            android:id="@+id/ButtonHauptseite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="15dp"
+            android:text="Hauptseite"
+            />
+    </RelativeLayout>
+
+</LinearLayout>
