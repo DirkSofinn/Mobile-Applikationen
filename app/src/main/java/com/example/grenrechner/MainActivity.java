@@ -40,6 +40,15 @@ public class MainActivity extends AppCompatActivity{
         berechnen.setOnClickListener(view-> {
             berechnungGroesse();
             Intent intent=new Intent(this, ActivityAusgabe.class);
+            intent.putExtra("Groesse Mutter",groesseMutter.getText().toString());
+            intent.putExtra("Groesse Vater",groesseVater.getText().toString());
+            intent.putExtra("Groesse Kind", groesseKind);
+            if(geschlechtM.isChecked())
+                intent.putExtra("Geschlecht","Männlich");
+            if(geschlechtW.isChecked())
+                intent.putExtra("Geschlecht","Weiblich");
+            if (geschlechtD.isChecked())
+                intent.putExtra("Geschlecht","Divers");
             startActivity(intent);}); //Noch in Datenbank speichern hinzufügen
 
         hilfe.setOnClickListener(view -> {
