@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class ActivityAusgabe extends AppCompatActivity {
@@ -12,6 +13,8 @@ public class ActivityAusgabe extends AppCompatActivity {
     TextView grMutter;
     TextView grVater;
     TextView geschlecht;
+    Button weitereEingabe;
+    Button listenAnsicht;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +25,8 @@ public class ActivityAusgabe extends AppCompatActivity {
         grMutter=findViewById(R.id.AusgabeGroesseMutter);
         grVater=findViewById(R.id.AusgabeGroesseVater);
         geschlecht=findViewById(R.id.AusgabeGeschlecht);
+        weitereEingabe=findViewById(R.id.ButtonZurEingabe);
+        listenAnsicht=findViewById(R.id.ButtonZurListe);
 
         Intent intent=getIntent();
 
@@ -29,5 +34,11 @@ public class ActivityAusgabe extends AppCompatActivity {
         grMutter.setText(intent.getStringExtra("Groesse Mutter"));
         grVater.setText(intent.getStringExtra("Groesse Vater"));
         geschlecht.setText(intent.getStringExtra("Geschlecht"));
+
+        weitereEingabe.setOnClickListener(view -> finish());
+        listenAnsicht.setOnClickListener(view -> {
+            Intent intent1=new Intent(this, ActivityList.class);
+            startActivity(intent1);
+        });
     }
 }
