@@ -7,17 +7,15 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity{
 
-    TextView titel;
-    TextView beschreibung;
     RadioButton geschlechtM;
     RadioButton geschlechtW;
     RadioButton geschlechtD;
     Button berechnen;
     Button hilfe;
+    Button liste;
     EditText groesseMutter;
     EditText groesseVater;
     int groesseKind =0;
@@ -27,8 +25,6 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        titel=findViewById(R.id.Titel);
-        beschreibung=findViewById(R.id.Beschreibung);
         geschlechtM=findViewById(R.id.ButtonMännlich);
         geschlechtW=findViewById(R.id.ButtonWeiblich);
         geschlechtD=findViewById(R.id.ButtonDivers);
@@ -36,6 +32,7 @@ public class MainActivity extends AppCompatActivity{
         groesseVater=findViewById(R.id.groesseVater);
         berechnen=findViewById(R.id.ButtonBerechnen);
         hilfe=findViewById(R.id.ButtonHilfe);
+        liste=findViewById(R.id.ButtonMainListe);
 
         berechnen.setOnClickListener(view-> {
             berechnungGroesse();
@@ -54,6 +51,11 @@ public class MainActivity extends AppCompatActivity{
         hilfe.setOnClickListener(view -> {
             Intent intent=new Intent(this, ActivityHelp.class);
             startActivity(intent);});
+
+        liste.setOnClickListener(view -> {
+            Intent intent1=new Intent(this, ActivityList.class);
+            startActivity(intent1);
+        });
     }
 
     public void berechnungGroesse(){
