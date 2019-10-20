@@ -29,51 +29,50 @@
         android:textStyle="italic"/>
 
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="50dp"
-        android:layout_marginStart="70dp"
         android:orientation="vertical">
 
         <RadioGroup
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-         >
-        <RadioButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Männlich"
-            android:id="@+id/ButtonMännlich"
-            />
-        <RadioButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Divers"
-            android:id="@+id/ButtonDivers"/>
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Weiblich"
-            android:id="@+id/ButtonWeiblich"
-            />
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/ButtonMännlich"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Männlich" />
+
+            <RadioButton
+                android:id="@+id/ButtonDivers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Divers" />
+
+            <RadioButton
+                android:id="@+id/ButtonWeiblich"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Weiblich" />
         </RadioGroup>
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/groesseMutter"
-        android:hint="Größe der Mutter eingeben... (in cm)"
-        android:layout_marginBottom="35dp"/>
+        <EditText
+            android:id="@+id/groesseMutter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="35dp"
+            android:hint="Größe des Elternteils eingeben... (in cm)" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/groesseVater"
-        android:hint="Größe des Vaters eingeben... (in cm)"
-        android:layout_marginBottom="50dp"/>
+        <EditText
+            android:id="@+id/groesseVater"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:hint="Größe des Elternteils eingeben... (in cm)" />
     </LinearLayout>
 
     <RelativeLayout
@@ -86,7 +85,7 @@
             android:layout_centerHorizontal="true"
             android:text="Jetzt berechnen"
            />
-                            
+
 
         <Button
             android:id="@+id/ButtonHilfe"
