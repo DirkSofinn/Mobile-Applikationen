@@ -3,13 +3,17 @@ package com.example.grenrechner;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 
+import static com.example.grenrechner.GroesseRoomDatabase.*;
+
 public class MainActivity extends AppCompatActivity{
 
+    GroesseDAO dao;
     RadioButton geschlechtM;
     RadioButton geschlechtW;
     RadioButton geschlechtD;
@@ -24,6 +28,8 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        dao= getDatabase(this).groesseDAO();
 
         geschlechtM=findViewById(R.id.ButtonMännlich);
         geschlechtW=findViewById(R.id.ButtonWeiblich);
@@ -46,7 +52,8 @@ public class MainActivity extends AppCompatActivity{
                 intent.putExtra("Geschlecht","Weiblich");
             if (geschlechtD.isChecked())
                 intent.putExtra("Geschlecht","Divers");
-            startActivity(intent);}); //Noch in Datenbank speichern hinzufügen
+            saveGroesseOnClick();
+            startActivity(intent);});
 
         hilfe.setOnClickListener(view -> {
             Intent intent=new Intent(this, ActivityHelp.class);
@@ -68,6 +75,34 @@ public class MainActivity extends AppCompatActivity{
         if (geschlechtD.isChecked())
             groesseKind =  (Integer.parseInt(groesseMutter.getText().toString()) +
                     Integer.parseInt(groesseVater.getText().toString()))/2;
+    }
+
+    class SpeichernTask extends AsyncTask<Groesse, Void, Void>{
+
+        @Override
+        protected Void doInBackground(Groesse... groesses) {
+            dao.insert(groesses[0]);
+            return null;
+        }
+        @Override
+        protected void onPostExecute (Void avoid){
+            super.onPostExecute(avoid);
+        }
+    }
+
+    private void saveGroesseOnClick(){
+        if(!groesseMutter.getText().toString().isEmpty() && !groesseVater.getText().toString().isEmpty()
+        && groesseKind>0){
+            if(geschlechtW.isChecked())
+            new SpeichernTask().execute(new Groesse(Integer.parseInt(groesseMutter.getText().toString()),
+                    Integer.parseInt(groesseVater.getText().toString()), groesseKind,'w'));
+            if(geschlechtM.isChecked())
+                new SpeichernTask().execute(new Groesse(Integer.parseInt(groesseMutter.getText().toString()),
+                        Integer.parseInt(groesseVater.getText().toString()), groesseKind,'m'));
+            if(geschlechtD.isChecked())
+                new SpeichernTask().execute(new Groesse(Integer.parseInt(groesseMutter.getText().toString()),
+                        Integer.parseInt(groesseVater.getText().toString()), groesseKind,'d'));
+        }
     }
 
 }
