@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey;
 public class Groesse {
 
     @PrimaryKey(autoGenerate = true)
-    private int id;
+     private int id;
     private int groesseMutter;
     private int groesseVater;
     private int groesseKind;
@@ -50,5 +50,13 @@ public class Groesse {
 
     public void setGeschlecht(char geschlecht) {
         this.geschlecht = geschlecht;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
