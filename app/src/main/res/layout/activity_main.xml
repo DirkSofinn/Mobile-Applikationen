@@ -12,19 +12,19 @@
         android:layout_height="wrap_content"
         android:text="Der Grössenrechner"
         android:textColor="@color/colorAccent"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginTop="30sp"
+        android:layout_marginBottom="15sp"
         android:textAlignment="center"
         android:textStyle="bold"
         android:textAllCaps="true"
-        android:textSize="30dp"/>
+        android:textSize="30sp"/>
 
     <TextView
         android:id="@+id/Beschreibung"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Mit diesem Rechner können sie die Größe ihres Kindes errechnen"
-        android:textSize="15dp"
+        android:textSize="15sp"
         android:textAlignment="center"
         android:textStyle="italic"/>
 
@@ -32,8 +32,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginStart="50sp"
+        android:layout_marginTop="50sp"
         android:orientation="vertical">
 
         <RadioGroup
@@ -64,14 +64,14 @@
             android:id="@+id/groesseMutter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="35dp"
+            android:layout_marginBottom="35sp"
             android:hint="Größe des Elternteils eingeben... (in cm)" />
 
         <EditText
             android:id="@+id/groesseVater"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="50sp"
             android:hint="Größe des Elternteils eingeben... (in cm)" />
     </LinearLayout>
 
@@ -79,20 +79,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >"
         <Button
-            android:layout_width="200dp"
-            android:layout_height="150dp"
+            android:layout_width="200sp"
+            android:layout_height="150sp"
             android:id="@+id/ButtonBerechnen"
             android:layout_centerHorizontal="true"
             android:text="Jetzt berechnen"
            />
-
 
         <Button
             android:id="@+id/ButtonHilfe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="15dp"
+            android:layout_marginEnd="15sp"
             android:text="Hilfe"
             />
 
