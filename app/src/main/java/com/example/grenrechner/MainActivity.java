@@ -98,13 +98,13 @@ public class MainActivity extends AppCompatActivity{
         && groesseKind>0){
             if(geschlechtW.isChecked())
             new SpeichernTask().execute(new Groesse(Integer.parseInt(groesseMutter.getText().toString()),
-                    Integer.parseInt(groesseVater.getText().toString()), groesseKind,"Weiblich"));
+                    Integer.parseInt(groesseVater.getText().toString()), groesseKind,'W'));
             if(geschlechtM.isChecked())
                 new SpeichernTask().execute(new Groesse(Integer.parseInt(groesseMutter.getText().toString()),
-                        Integer.parseInt(groesseVater.getText().toString()), groesseKind,"Männlich"));
+                        Integer.parseInt(groesseVater.getText().toString()), groesseKind,'M'));
             if(geschlechtD.isChecked())
                 new SpeichernTask().execute(new Groesse(Integer.parseInt(groesseMutter.getText().toString()),
-                        Integer.parseInt(groesseVater.getText().toString()), groesseKind,"Divers"));
+                        Integer.parseInt(groesseVater.getText().toString()), groesseKind,'D'));
         }
     }
 
