@@ -30,9 +30,9 @@ public class ActivityAusgabe extends AppCompatActivity {
 
         Intent intent=getIntent();
 
-        grKind.setText(intent.getStringExtra("Groesse Kind"));
-        grMutter.setText(intent.getStringExtra("Groesse Mutter"));
-        grVater.setText(intent.getStringExtra("Groesse Vater"));
+        grKind.setText(intent.getStringExtra("Groesse Kind")+" cm ");
+        grMutter.setText(intent.getStringExtra("Groesse Mutter")+ " cm");
+        grVater.setText(intent.getStringExtra("Groesse Vater")+" cm");
         geschlecht.setText(intent.getStringExtra("Geschlecht"));
 
         weitereEingabe.setOnClickListener(view -> finish());

@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity{
             Intent intent=new Intent(this, ActivityAusgabe.class);
             intent.putExtra("Groesse Mutter",groesseMutter.getText().toString());
             intent.putExtra("Groesse Vater",groesseVater.getText().toString());
-            intent.putExtra("Groesse Kind", groesseKind);
+            intent.putExtra("Groesse Kind", groesseKind+"");
             if(geschlechtM.isChecked())
                 intent.putExtra("Geschlecht","Männlich");
             if(geschlechtW.isChecked())
@@ -66,15 +66,18 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public void berechnungGroesse(){
-        if (geschlechtM.isChecked())
+        if (geschlechtM.isChecked()) {
             groesseKind =  (Integer.parseInt(groesseMutter.getText().toString()) +
                     Integer.parseInt(groesseVater.getText().toString())+13)/2;
-        if (geschlechtW.isChecked())
+        }
+        if (geschlechtW.isChecked()) {
             groesseKind =  (Integer.parseInt(groesseMutter.getText().toString()) +
                     Integer.parseInt(groesseVater.getText().toString())-13)/2;
-        if (geschlechtD.isChecked())
+        }
+        if (geschlechtD.isChecked()) {
             groesseKind =  (Integer.parseInt(groesseMutter.getText().toString()) +
                     Integer.parseInt(groesseVater.getText().toString()))/2;
+        }
     }
 
     class SpeichernTask extends AsyncTask<Groesse, Void, Void>{
