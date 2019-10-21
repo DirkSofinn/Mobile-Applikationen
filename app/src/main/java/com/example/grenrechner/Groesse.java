@@ -11,9 +11,9 @@ public class Groesse {
     private int groesseMutter;
     private int groesseVater;
     private int groesseKind;
-    private char geschlecht;
+    private String geschlecht;
 
-    public Groesse(int groesseMutter, int groesseVater, int groesseKind, char geschlecht){
+    public Groesse(int groesseMutter, int groesseVater, int groesseKind, String geschlecht){
         this.geschlecht=geschlecht;
         this.groesseMutter= groesseMutter;
         this.groesseVater= groesseVater;
@@ -44,11 +44,11 @@ public class Groesse {
         this.groesseKind = groesseKind;
     }
 
-    public char getGeschlecht() {
+    public String getGeschlecht() {
         return geschlecht;
     }
 
-    public void setGeschlecht(char geschlecht) {
+    public void setGeschlecht(String geschlecht) {
         this.geschlecht = geschlecht;
     }
 

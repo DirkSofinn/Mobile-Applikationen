@@ -38,10 +38,10 @@ public class GroesseListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         TextView geschlecht=holder.itemView.findViewById(R.id.activity_list_item_Geschlecht);
         Button loeschen=holder.itemView.findViewById(R.id.activity_list_item_ButtonLoeschen);
 
-        groesseMutter.setText(groesseList.get(position).getGroesseMutter()+" cm");
-        groesseVater.setText(groesseList.get(position).getGroesseVater()+" cm");
-        groesseKind.setText(groesseList.get(position).getGroesseKind()+" cm");
-        geschlecht.setText(groesseList.get(position).getGeschlecht()+"");
+        groesseMutter.setText("Grösse eines Elternteils: "+groesseList.get(position).getGroesseMutter()+" cm");
+        groesseVater.setText("Grösse des anderen Elternteils: "+groesseList.get(position).getGroesseVater()+" cm");
+        groesseKind.setText("Grösse des ausgewachsenen Kindes: "+groesseList.get(position).getGroesseKind()+" cm");
+        geschlecht.setText("Geschlecht: "+groesseList.get(position).getGeschlecht()+"");
         loeschen.setOnClickListener(view -> {
             new DeleteGroesseTask(this.dao, this).execute(groesseList.get(position));
         });

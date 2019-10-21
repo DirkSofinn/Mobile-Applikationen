@@ -65,14 +65,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="35sp"
-            android:hint="Größe des Elternteils eingeben... (in cm)" />
+            android:hint="Größe des Elternteils eingeben(in cm)" />
 
         <EditText
             android:id="@+id/groesseVater"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="50sp"
-            android:hint="Größe des Elternteils eingeben... (in cm)" />
+            android:hint="Größe des Elternteils eingeben(in cm)" />
     </LinearLayout>
 
     <RelativeLayout

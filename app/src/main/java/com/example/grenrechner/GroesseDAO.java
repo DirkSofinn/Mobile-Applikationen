@@ -11,7 +11,7 @@ import java.util.List;
 @Dao
 public interface GroesseDAO {
 
-    @Insert (onConflict = OnConflictStrategy.REPLACE)
+    @Insert (onConflict = OnConflictStrategy.IGNORE)
     public void insert(Groesse groesse);
 
     @Query("SELECT * from Groesse")
