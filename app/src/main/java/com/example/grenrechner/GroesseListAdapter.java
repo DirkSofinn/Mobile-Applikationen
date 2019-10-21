@@ -32,18 +32,18 @@ public class GroesseListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        TextView groesseMutter=holder.itemView.findViewById(R.id.activity_list_item_GroesseMutter);
+        TextView groesseMutter = holder.itemView.findViewById(R.id.activity_list_item_GroesseMutter);
         TextView groesseVater=holder.itemView.findViewById(R.id.activity_list_item_GroesseVater);
         TextView groesseKind=holder.itemView.findViewById(R.id.activity_list_item_GroesseKind);
         TextView geschlecht=holder.itemView.findViewById(R.id.activity_list_item_Geschlecht);
         Button loeschen=holder.itemView.findViewById(R.id.activity_list_item_ButtonLoeschen);
 
-        groesseMutter.setText(groesseList.get(position).getGroesseMutter());
-        groesseVater.setText(groesseList.get(position).getGroesseVater());
-        groesseKind.setText(groesseList.get(position).getGroesseKind());
-        geschlecht.setText(groesseList.get(position).getGeschlecht());
+        groesseMutter.setText(groesseList.get(position).getGroesseMutter()+" cm");
+        groesseVater.setText(groesseList.get(position).getGroesseVater()+" cm");
+        groesseKind.setText(groesseList.get(position).getGroesseKind()+" cm");
+        geschlecht.setText(groesseList.get(position).getGeschlecht()+"");
         loeschen.setOnClickListener(view -> {
-            new DeleteGroesseTask(dao, this).execute(groesseList.get(position));
+            new DeleteGroesseTask(this.dao, this).execute(groesseList.get(position));
         });
     }
 
@@ -74,7 +74,7 @@ public class GroesseListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
         @Override
         protected List<Groesse> doInBackground(Groesse... groesses) {
-            dao.delete(groesses[0]);
+            this.dao.delete(groesses[0]);
             return dao.getAll();
         }
         @Override

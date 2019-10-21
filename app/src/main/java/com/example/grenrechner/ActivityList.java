@@ -20,12 +20,13 @@ public class ActivityList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
+        dao=GroesseRoomDatabase.getDatabase(this).groesseDAO();
+
         recyclerView=findViewById(R.id.activity_list_recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         groesseListAdapter=new GroesseListAdapter(dao);
         recyclerView.setAdapter(groesseListAdapter);
 
-        dao=GroesseRoomDatabase.getDatabase(this).groesseDAO();
     }
     @Override
     protected void onResume(){
