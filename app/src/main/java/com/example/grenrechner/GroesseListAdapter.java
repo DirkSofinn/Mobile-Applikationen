@@ -1,8 +1,10 @@
 package com.example.grenrechner;
 
+import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,8 +16,11 @@ import java.util.List;
 public class GroesseListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private List<Groesse> groesseList= Collections.emptyList();
+    private final GroesseDAO dao;
 
-    GroesseListAdapter(){}
+    GroesseListAdapter(GroesseDAO dao){
+        this.dao = dao;
+    }
 
     @NonNull
     @Override
@@ -27,11 +32,19 @@ public class GroesseListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        // muss später erfolgen hier werden die einzelnen Attribute den List Items zugewiesen
         TextView groesseMutter=holder.itemView.findViewById(R.id.activity_list_item_GroesseMutter);
         TextView groesseVater=holder.itemView.findViewById(R.id.activity_list_item_GroesseVater);
         TextView groesseKind=holder.itemView.findViewById(R.id.activity_list_item_GroesseKind);
         TextView geschlecht=holder.itemView.findViewById(R.id.activity_list_item_Geschlecht);
+        Button loeschen=holder.itemView.findViewById(R.id.activity_list_item_ButtonLoeschen);
+
+        groesseMutter.setText(groesseList.get(position).getGroesseMutter());
+        groesseVater.setText(groesseList.get(position).getGroesseVater());
+        groesseKind.setText(groesseList.get(position).getGroesseKind());
+        geschlecht.setText(groesseList.get(position).getGeschlecht());
+        loeschen.setOnClickListener(view -> {
+            new DeleteGroesseTask(dao, this).execute(groesseList.get(position));
+        });
     }
 
     @Override
@@ -46,6 +59,28 @@ public class GroesseListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     class GroesseViewHolder extends RecyclerView.ViewHolder{
         public GroesseViewHolder(@NonNull View itemView){
             super(itemView);
+        }
+    }
+
+    static class DeleteGroesseTask extends AsyncTask<Groesse, Void, List<Groesse>>{
+
+        private final GroesseDAO dao;
+        private final GroesseListAdapter groesseListAdapter;
+
+        DeleteGroesseTask(GroesseDAO dao, GroesseListAdapter groesseListAdapter) {
+            this.dao = dao;
+            this.groesseListAdapter = groesseListAdapter;
+        }
+
+        @Override
+        protected List<Groesse> doInBackground(Groesse... groesses) {
+            dao.delete(groesses[0]);
+            return dao.getAll();
+        }
+        @Override
+        protected void onPostExecute(List<Groesse> groesses){
+            super.onPostExecute(groesses);
+            groesseListAdapter.setGroesseList(groesses);
         }
     }
 }

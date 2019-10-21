@@ -22,7 +22,7 @@ public class ActivityList extends AppCompatActivity {
 
         recyclerView=findViewById(R.id.activity_list_recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        groesseListAdapter=new GroesseListAdapter();
+        groesseListAdapter=new GroesseListAdapter(dao);
         recyclerView.setAdapter(groesseListAdapter);
 
         dao=GroesseRoomDatabase.getDatabase(this).groesseDAO();

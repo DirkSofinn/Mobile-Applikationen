@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class ActivityHelp extends AppCompatActivity implements View.OnClickListener {
+public class ActivityHelp extends AppCompatActivity {//implements View.OnClickListener {
 
     Button zurueck;
     View.OnClickListener cl;
@@ -17,14 +17,14 @@ public class ActivityHelp extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help);
 
-        zurueck =findViewById(R.id.ButtonHauptseite);
+       // zurueck =findViewById(R.id.ButtonHauptseite);
 
-        zurueck.setOnClickListener(cl);
+     //   zurueck.setOnClickListener(cl);
     }
 
-    @Override
-    public void onClick(View view) {
-        Intent intent =new Intent(this,MainActivity.class);
-        startActivity(intent);
-    }
+   // @Override
+   // public void onClick(View view) {
+     //   Intent intent =new Intent(this,MainActivity.class);
+    //    startActivity(intent);
+    //}
 }
