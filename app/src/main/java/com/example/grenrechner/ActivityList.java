@@ -20,7 +20,7 @@ public class ActivityList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
-        //recyclerView=findViewById(R.id.); fehlt id des List items
+        recyclerView=findViewById(R.id.activity_list_recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         groesseListAdapter=new GroesseListAdapter();
         recyclerView.setAdapter(groesseListAdapter);
