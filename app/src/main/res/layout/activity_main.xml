@@ -30,49 +30,51 @@
 
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50sp"
-        android:layout_marginTop="50sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30sp"
+        android:layout_marginBottom="30sp"
         android:orientation="vertical">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="15sp"
-            android:text="Geschlecht des Kindes:"
-            android:id="@+id/Textding"/>
 
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_below="@id/Textding">
-
-
-            <RadioButton
-                android:id="@+id/ButtonMännlich"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Männlich" />
-
-            <RadioButton
-                android:id="@+id/ButtonDivers"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Divers"
-                />
-
-            <RadioButton
-                android:id="@+id/ButtonWeiblich"
+            <TextView
+                android:id="@+id/Textding"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Weiblich" />
+                android:text="Geschlecht des Kindes:"
+                android:textSize="15sp" />
 
-        </RadioGroup>
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/Textding"
+                android:layout_marginTop="15sp"
+                android:layout_marginBottom="15sp"
+                android:orientation="vertical">
+
+
+                <RadioButton
+                    android:id="@+id/ButtonMännlich"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Männlich" />
+
+                <RadioButton
+                    android:id="@+id/ButtonDivers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Divers" />
+
+                <RadioButton
+                    android:id="@+id/ButtonWeiblich"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Weiblich" />
+            </RadioGroup>
 
         </RelativeLayout>
 
@@ -88,7 +90,6 @@
             android:id="@+id/groesseVater"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="50sp"
             android:inputType="number"
             android:hint="Größe des Elternteils eingeben(in cm)" />
     </LinearLayout>
