@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import static com.example.grenrechner.GroesseRoomDatabase.*;
 
@@ -42,18 +43,8 @@ public class MainActivity extends AppCompatActivity{
 
         berechnen.setOnClickListener(view-> {
             berechnungGroesse();
-            Intent intent=new Intent(this, ActivityAusgabe.class);
-            intent.putExtra("Groesse Mutter",groesseMutter.getText().toString());
-            intent.putExtra("Groesse Vater",groesseVater.getText().toString());
-            intent.putExtra("Groesse Kind", groesseKind+"");
-            if(geschlechtM.isChecked())
-                intent.putExtra("Geschlecht","Männlich");
-            if(geschlechtW.isChecked())
-                intent.putExtra("Geschlecht","Weiblich");
-            if (geschlechtD.isChecked())
-                intent.putExtra("Geschlecht","Divers");
-            saveGroesseOnClick();
-            startActivity(intent);});
+            saveGroesseOnClick();});
+
 
         hilfe.setOnClickListener(view -> {
             Intent intent=new Intent(this, ActivityHelp.class);
@@ -66,17 +57,40 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public void berechnungGroesse(){
-        if (geschlechtM.isChecked()) {
-            groesseKind =  (Integer.parseInt(groesseMutter.getText().toString()) +
-                    Integer.parseInt(groesseVater.getText().toString())+13)/2;
-        }
-        if (geschlechtW.isChecked()) {
-            groesseKind =  (Integer.parseInt(groesseMutter.getText().toString()) +
-                    Integer.parseInt(groesseVater.getText().toString())-13)/2;
-        }
-        if (geschlechtD.isChecked()) {
-            groesseKind =  (Integer.parseInt(groesseMutter.getText().toString()) +
-                    Integer.parseInt(groesseVater.getText().toString()))/2;
+        if(!groesseMutter.getText().toString().isEmpty() && !groesseVater.getText().toString().isEmpty()) {
+            if (geschlechtM.isChecked()) {
+                groesseKind = (Integer.parseInt(groesseMutter.getText().toString()) +
+                        Integer.parseInt(groesseVater.getText().toString()) + 13) / 2;
+                Intent intent=new Intent(this, ActivityAusgabe.class);
+                intent.putExtra("Groesse Mutter",groesseMutter.getText().toString());
+                intent.putExtra("Groesse Vater",groesseVater.getText().toString());
+                intent.putExtra("Groesse Kind", groesseKind+"");
+                intent.putExtra("Geschlecht","Männlich");
+                startActivity(intent);
+            }
+            if (geschlechtW.isChecked()) {
+                groesseKind = (Integer.parseInt(groesseMutter.getText().toString()) +
+                        Integer.parseInt(groesseVater.getText().toString()) - 13) / 2;
+                Intent intent=new Intent(this, ActivityAusgabe.class);
+                intent.putExtra("Groesse Mutter",groesseMutter.getText().toString());
+                intent.putExtra("Groesse Vater",groesseVater.getText().toString());
+                intent.putExtra("Groesse Kind", groesseKind+"");
+                intent.putExtra("Geschlecht","Weiblich");
+                startActivity(intent);
+            }
+            if (geschlechtD.isChecked()) {
+                groesseKind = (Integer.parseInt(groesseMutter.getText().toString()) +
+                        Integer.parseInt(groesseVater.getText().toString())) / 2;
+                Intent intent=new Intent(this, ActivityAusgabe.class);
+                intent.putExtra("Groesse Mutter",groesseMutter.getText().toString());
+                intent.putExtra("Groesse Vater",groesseVater.getText().toString());
+                intent.putExtra("Groesse Kind", groesseKind+"");
+                intent.putExtra("Geschlecht","Divers");
+                startActivity(intent);
+            }
+            else{
+                Toast.makeText(this,"Bitte ein Gescchlecht auswählen",Toast.LENGTH_LONG).show();
+            }
         }
     }
 
