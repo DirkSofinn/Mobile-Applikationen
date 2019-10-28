@@ -67,16 +67,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Größe des einen Elternteils:"
-        android:textSize="20sp"
+        android:textSize="19sp"
         android:layout_marginRight="30sp"/>
 
         <TextView
             android:id="@+id/AusgabeGroesseMutter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:text=""
-            android:singleLine="true"/>
+            android:textSize="19sp"
+            android:text=""/>
     </LinearLayout>
 
     <LinearLayout
@@ -90,15 +89,14 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="30sp"
             android:text="Größe des anderen Elternteils:"
-            android:textSize="20sp" />
+            android:textSize="19sp" />
 
         <TextView
             android:id="@+id/AusgabeGroesseVater"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:text=""
-            android:singleLine="true"/>
+            android:textSize="19sp"
+            android:text=""/>
     </LinearLayout>
 
     <RelativeLayout
