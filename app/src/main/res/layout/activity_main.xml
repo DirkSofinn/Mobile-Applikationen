@@ -36,10 +36,22 @@
         android:layout_marginTop="50sp"
         android:orientation="vertical">
 
-        <RadioGroup
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:textSize="15sp"
+            android:text="Geschlecht des Kindes:"
+            android:id="@+id/Textding"/>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@id/Textding">
+
 
             <RadioButton
                 android:id="@+id/ButtonMännlich"
@@ -51,14 +63,18 @@
                 android:id="@+id/ButtonDivers"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Divers" />
+                android:text="Divers"
+                />
 
             <RadioButton
                 android:id="@+id/ButtonWeiblich"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Weiblich" />
+
         </RadioGroup>
+
+        </RelativeLayout>
 
         <EditText
             android:id="@+id/groesseMutter"
