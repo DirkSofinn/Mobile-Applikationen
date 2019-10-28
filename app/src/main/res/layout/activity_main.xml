@@ -46,6 +46,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Geschlecht des Kindes:"
+                android:textStyle="bold"
                 android:textSize="15sp" />
 
             <RadioGroup
