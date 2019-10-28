@@ -24,7 +24,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/fragezeichen"
-            android:alpha="0.25" />
+            android:alpha="0.25"
+            />
 
         <TextView
             android:id="@+id/HilfeText"
@@ -32,7 +33,8 @@
             android:layout_height="wrap_content"
             android:text=" Mit dieser App können Sie die wahrscheinliche spätere Körpergröße eines Kindes anhand der Körpergröße der Eltern berechnen. Geben Sie dazu die nötigen Werte in die vorgegeben Zeilen ein und wählen Sie das Geschlecht des Kindes aus. Klicken Sie dann auf -Jetzt berechnen- um das Ergebnis anzuzeigen. Drücken Sie auf -weiterer Eintrag- um wieder auf den Startbildschirm zu kommen. Mit der Listenübersicht können Sie sich einen Überblick über die bisherigen Berechnungen verschaffen und auch einzelne Einträge wieder entfernen."
             android:textAlignment="center"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:layout_centerVertical="true"/>
 
         <!--<Button
             android:id="@+id/ButtonHauptseite"
