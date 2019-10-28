@@ -88,7 +88,9 @@ public class MainActivity extends AppCompatActivity{
                 intent.putExtra("Geschlecht","Divers");
                 startActivity(intent);
             }
-            Toast.makeText(this,"Bitte ein Gescchlecht auswählen",Toast.LENGTH_LONG).show();
+            if(!geschlechtD.isChecked() && !geschlechtM.isChecked() && !geschlechtW.isChecked()) {
+                Toast.makeText(this, "Bitte ein Gescchlecht auswählen", Toast.LENGTH_LONG).show();
+            }
 
         }
     }
