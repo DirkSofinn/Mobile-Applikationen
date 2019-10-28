@@ -88,9 +88,8 @@ public class MainActivity extends AppCompatActivity{
                 intent.putExtra("Geschlecht","Divers");
                 startActivity(intent);
             }
-            else{
-                Toast.makeText(this,"Bitte ein Gescchlecht auswählen",Toast.LENGTH_LONG).show();
-            }
+            Toast.makeText(this,"Bitte ein Gescchlecht auswählen",Toast.LENGTH_LONG).show();
+
         }
     }
 
