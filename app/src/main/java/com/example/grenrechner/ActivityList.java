@@ -18,6 +18,7 @@ public class ActivityList extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(android.R.style.Theme_Material_Light_NoActionBar);
         setContentView(R.layout.activity_list);
 
         dao=GroesseRoomDatabase.getDatabase(this).groesseDAO();
