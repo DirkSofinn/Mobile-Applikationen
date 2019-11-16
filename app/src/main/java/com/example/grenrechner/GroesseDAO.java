@@ -12,11 +12,11 @@ import java.util.List;
 public interface GroesseDAO {
 
     @Insert (onConflict = OnConflictStrategy.IGNORE)
-    public void insert(Groesse groesse);
+    void insert(Groesse groesse);
 
     @Query("SELECT * from Groesse")
-    public List<Groesse> getAll();
+    List<Groesse> getAll();
 
     @Delete
-    public void delete(Groesse groesse);
+    void delete(Groesse groesse);
 }

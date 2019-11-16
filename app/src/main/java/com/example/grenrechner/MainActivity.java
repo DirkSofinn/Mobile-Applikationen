@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity{
     EditText groesseMutter;
     EditText groesseVater;
     int groesseKind =0;
+    boolean save;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +45,10 @@ public class MainActivity extends AppCompatActivity{
 
         berechnen.setOnClickListener(view-> {
             berechnungGroesse();
-            saveGroesseOnClick();});
-
+            if(save){
+            saveGroesseOnClick();
+            }
+        });
 
         hilfe.setOnClickListener(view -> {
             Intent intent=new Intent(this, ActivityHelp.class);
@@ -57,42 +60,52 @@ public class MainActivity extends AppCompatActivity{
         });
     }
 
-    public void berechnungGroesse(){
-        if(!groesseMutter.getText().toString().isEmpty() && !groesseVater.getText().toString().isEmpty()) {
-            if (geschlechtM.isChecked()) {
-                groesseKind = (Integer.parseInt(groesseMutter.getText().toString()) +
-                        Integer.parseInt(groesseVater.getText().toString()) + 13) / 2;
-                Intent intent=new Intent(this, ActivityAusgabe.class);
-                intent.putExtra("Groesse Mutter",groesseMutter.getText().toString());
-                intent.putExtra("Groesse Vater",groesseVater.getText().toString());
-                intent.putExtra("Groesse Kind", groesseKind+"");
-                intent.putExtra("Geschlecht","Männlich");
-                startActivity(intent);
-            }
-            if (geschlechtW.isChecked()) {
-                groesseKind = (Integer.parseInt(groesseMutter.getText().toString()) +
-                        Integer.parseInt(groesseVater.getText().toString()) - 13) / 2;
-                Intent intent=new Intent(this, ActivityAusgabe.class);
-                intent.putExtra("Groesse Mutter",groesseMutter.getText().toString());
-                intent.putExtra("Groesse Vater",groesseVater.getText().toString());
-                intent.putExtra("Groesse Kind", groesseKind+"");
-                intent.putExtra("Geschlecht","Weiblich");
-                startActivity(intent);
-            }
-            if (geschlechtD.isChecked()) {
-                groesseKind = (Integer.parseInt(groesseMutter.getText().toString()) +
-                        Integer.parseInt(groesseVater.getText().toString())) / 2;
-                Intent intent=new Intent(this, ActivityAusgabe.class);
-                intent.putExtra("Groesse Mutter",groesseMutter.getText().toString());
-                intent.putExtra("Groesse Vater",groesseVater.getText().toString());
-                intent.putExtra("Groesse Kind", groesseKind+"");
-                intent.putExtra("Geschlecht","Divers");
-                startActivity(intent);
-            }
-            if(!geschlechtD.isChecked() && !geschlechtM.isChecked() && !geschlechtW.isChecked()) {
-                Toast.makeText(getApplicationContext(), "Bitte ein Geschlecht auswählen", Toast.LENGTH_LONG).show();
-            }
+    public void berechnungGroesse() {
+        if (!groesseMutter.getText().toString().isEmpty() && !groesseVater.getText().toString().isEmpty()) {
+            if (Integer.parseInt(groesseMutter.getText().toString()) > 130 && Integer.parseInt(groesseVater.getText().toString()) > 130
+                    && Integer.parseInt(groesseMutter.getText().toString()) < 230 && Integer.parseInt(groesseVater.getText().toString()) < 230) {
+                if (geschlechtM.isChecked()) {
+                    groesseKind = (Integer.parseInt(groesseMutter.getText().toString()) +
+                            Integer.parseInt(groesseVater.getText().toString()) + 13) / 2;
+                    Intent intent = new Intent(this, ActivityAusgabe.class);
+                    intent.putExtra("Groesse Mutter", groesseMutter.getText().toString());
+                    intent.putExtra("Groesse Vater", groesseVater.getText().toString());
+                    intent.putExtra("Groesse Kind", groesseKind + "");
+                    intent.putExtra("Geschlecht", "Männlich");
+                    save=true;
+                    startActivity(intent);
+                }
+                if (geschlechtW.isChecked()) {
+                    groesseKind = (Integer.parseInt(groesseMutter.getText().toString()) +
+                            Integer.parseInt(groesseVater.getText().toString()) - 13) / 2;
+                    Intent intent = new Intent(this, ActivityAusgabe.class);
+                    intent.putExtra("Groesse Mutter", groesseMutter.getText().toString());
+                    intent.putExtra("Groesse Vater", groesseVater.getText().toString());
+                    intent.putExtra("Groesse Kind", groesseKind + "");
+                    intent.putExtra("Geschlecht", "Weiblich");
+                    save=true;
+                    startActivity(intent);
+                }
+                if (geschlechtD.isChecked()) {
+                    groesseKind = (Integer.parseInt(groesseMutter.getText().toString()) +
+                            Integer.parseInt(groesseVater.getText().toString())) / 2;
+                    Intent intent = new Intent(this, ActivityAusgabe.class);
+                    intent.putExtra("Groesse Mutter", groesseMutter.getText().toString());
+                    intent.putExtra("Groesse Vater", groesseVater.getText().toString());
+                    intent.putExtra("Groesse Kind", groesseKind + "");
+                    intent.putExtra("Geschlecht", "Divers");
+                    save=true;
+                    startActivity(intent);
+                }
+                if (!geschlechtD.isChecked() && !geschlechtM.isChecked() && !geschlechtW.isChecked()) {
+                    Toast.makeText(getApplicationContext(), "Bitte ein Geschlecht auswählen", Toast.LENGTH_LONG).show();
+                    save=false;
+                }
 
+            }else{
+                Toast.makeText(getApplicationContext(), "Unlogische Größeneingabe-bitte geben sie Werte im Bereich von 130cm bis 230cm ein", Toast.LENGTH_LONG).show();
+                save=false;
+            }
         }
     }
 
